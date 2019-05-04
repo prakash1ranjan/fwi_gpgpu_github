@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
         memset(p0[0],0,nz*nx*sizeof(float));
         memset(p1[0],0,nz*nx*sizeof(float));
         memset(p2[0],0,nz*nx*sizeof(float));
-// Just to see
+// Just to see whether change can be made in main file directly
 		switch(is){
 			case 0 :
 				printf("Reading Source 1 \n");
