@@ -16,7 +16,7 @@
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
-
+/for checking
 
 int main(int argc, char *argv[])
 {
