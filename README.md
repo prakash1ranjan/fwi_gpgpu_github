@@ -21,4 +21,5 @@ fswfld.bin: u(x,y) at all time frames
 Commands to execute the code:
 
 gcc -fopenmp modeling.c
-./modleing
+
+./a.out

@@ -13,8 +13,6 @@
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
-
-//Prakash  GitTest1234
 /*<-----------------General Utilities-------------------------->*/
 
 float **alloc2d(int nz, int nx)
@@ -37,29 +35,6 @@ void dealloc2d(float **mat, int nx)
     int i;
     for (i=0;i<nx;i++){
         free(mat[i]);
-    }
-    free(mat);
-}
-
-float ***alloc3d(int nz, int nx, int nt)
-/*< Allocate 3D array in a contiguous memory >*/
-{
-    int i;
-    float ***cell= (float ***)malloc(nt*sizeof(float*));
-    cell[0] = alloc2d(nz,nx*nt);
-    for (i=0; i< nt; i++) {
-        cell[i] = cell[0]+i*nx;
-        /*cell[i] = alloc2d(nz,nx);*/
-    }
-    return cell;
-}
-
-void dealloc3d(float ***mat, int nt, int nx)
-/*< Free 3D array in contiguous memory >*/
-{
-    int i;
-    for (i=0;i<nt;i++){
-        dealloc2d(mat[i],nx);
     }
     free(mat);
 }
@@ -114,23 +89,6 @@ void add_source(float **u, float *source, int *sxz, int ns, int nz, bool add)
             sx=sxz[is]/nz;
             sz=sxz[is]%nz;
             u[sx][sz]-=source[is];
-        }
-    }
-}
-
-void add_spatiotemporal_source(float **p, float *source, int nx, int nz, int nt, int tstep)
-/*< add seismic sources >*/
-{
-    int ix, iz;
-   /* #ifdef _OPENMP
-    #pragma omp parallel for default(none)        \
-    private(ix,iz)                \
-    shared(p,source,nz,nx,nt,nb,tstep)
-    #endif */
- 
-    for (ix=0;ix<nx;ix++) {
-        for (iz=0;iz<nz;iz++) {
-            p[ix][iz]=p[ix][iz]+source[tstep+nt*ix+nt*nx*iz];
         }
     }
 }
