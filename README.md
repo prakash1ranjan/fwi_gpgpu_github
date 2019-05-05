@@ -16,3 +16,9 @@ fdutilc:   All funtions: Requires cleaning
 
 dobs.bin: observed data at specified receviers from t = (25 Geophones at ?)
 fswfld.bin: u(x,y) at all time frames
+
+
+Commands to execute the code:
+
+gcc -fopenmp modeling.c
+./modleing
